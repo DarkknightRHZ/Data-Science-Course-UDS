@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% block content %}
+{% load static %}
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+<meta charset="UTF-8">
+<title>ML API</title>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Shopping Amount</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+     
+    <form action="amount_predict" method="post">
+      {% csrf_token %}
+    	<input type="text" name="num1" placeholder="max_time" required="required" />
+      <input type="text" name="num2" placeholder="min_time" required="required" />
+      <input type="text" name="num3" placeholder="age" required="required" />
+      <input type="text" name="num4" placeholder="hr_min" required="required" />
+      <input type="text" name="num5" placeholder="ex_min" required="required" />
+      <input type="text" name="num6" placeholder="ex_max" required="required" />
+      <input type="text" name="num7" placeholder="sporting_activity" required="required" />
+      <input type="text" name="num8" placeholder="weekday: monday,tuesday,wednesday,thursday,friday,saturday" required="required" />
+      <input type="text" name="num9" placeholder="attendants: no,family,life partner,family member,little child" required="required" />
+      <input type="text" name="num10" placeholder="outdoor_temparature" required="required" />
+      <input type="text" name="num11" placeholder="BMI" required="required" />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+      <br>Result : {{result}}      <br>
+    </form>
+
+   <br>
+
+ </div>
+
+
+</body>
+
+</html>
+
+{% endblock %}
